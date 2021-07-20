@@ -4,9 +4,9 @@ C given radius and angle in degrees
       REAL R
       INTEGER I, NP, D
       PARAMETER ( PI = 3.14159 )
-      WRITE(5,410) '#please enter radius length'
+      WRITE(6,410) '#please enter radius length'
       READ(*,*) R
-      WRITE(5,410) '#please enter the angle (deg)'
+      WRITE(6,410) '#please enter the angle (deg)'
       READ(*,*) D
       NP = INT((D*PI)/1.8)
       DO 10, I=0, NP
