@@ -1,0 +1,29 @@
+FC=f77 -g -O2
+SRC = $(wildcard src/*.f)
+OBJ = obj/*.o obj/*.obj
+FFLAGS = -Iinclude
+LDFLAGS = -Llib -lm
+TARGET0 = arc
+TARGET1 = circle
+TARGET2 = gcd
+TARGETS = gcd circle arc
+all: $(TARGETS)
+obj/$(TARGET0).o: src/arc.f
+	$(FC) -c   $< -o obj/arc.o $(FFLAGS)
+$(TARGET0): obj/arc.o
+	$(FC) -o arc $< $(LDFLAGS)
+obj/$(TARGET1).o: src/circle.f
+	$(FC) -c   $< -o obj/circle.o $(FFLAGS)
+$(TARGET1): obj/circle.o
+	$(FC) -o circle $< $(LDFLAGS)
+obj/$(TARGET2).o: src/gcd.f
+	$(FC) -c   $< -o obj/gcd.o $(FFLAGS)
+$(TARGET2): obj/gcd.o
+	$(FC) -o gcd $< $(LDFLAGS)
+install: all
+	mv $(TARGETS) bin
+.PHONY: clean
+clean:
+	rm -f $(OBJ) $(TARGETS)
+distclean: clean
+	rm -f bin/* Makefile

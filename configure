@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+chmod +x config/*.sh
+if   [[ "$OS" == "Windows_NT" ]]
+then
+        echo "detected Microsoft $OS $(uname)"
+	arch=$(uname -m)
+        if [[ $arch == i686 ]]
+        then
+                echo 'ex. config/configure-win-i686-mingw.sh > Makefile.mingw32'
+                . config/configure-win-i686-gfortran.sh > Makefile.gfortran32
+		cp Makefile.gfortran32 Makefile
+        elif [[ $arch == x86_64 ]]
+        then
+                echo 'ex. config/configure-win-mingw.sh > Makefile.gfortran64'
+                . config/configure-win-X86_64-gfortran.sh > Makefile.gfortran64
+		cp Makefile.gfortran64 Makefile
+        else
+                echo "unhandled arch"
+        fi
+elif [[ $(uname) == "Linux" ]]
+then
+        echo "detected GNU/linux $OS"
+        uname -a
+        lsb_release -a
+        . config/configure-gfortran.sh > Makefile.lnx
+	cp Makefile.lnx Makefile
+elif [[ $(uname) == "Darwin" ]]
+then
+        echo "detected Apple $OS $(uname)"
+        . config/configure-gfortran-mac.sh > Makefile.mac
+else
+        echo "unknow OS"
+fi
+echo "generated Makefile"
+ls -lhrt Makefile*
+echo "project cnumerics configured"
+echo "if you are on GNU/Linux or Apple MacOSX, you can now run:"
+echo "make"
+echo "if you are on Microsoft Windows, you can now run:"
+echo "mingw32-make"
+echo "to see all generate files type:"
+echo "ls -alhrt"
+date

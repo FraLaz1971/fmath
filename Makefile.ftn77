@@ -1,0 +1,50 @@
+FC = ftn77
+FL = slink
+EEXE = .exe
+OEXE = .obj
+SRC = $(wildcard src/*.f)
+OBJ = *.obj
+FFLAGS = 
+FDFLAGS = /out:
+LDFLAGS = 
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
+RM = del
+MV = move
+TARGET0 = arc
+TARGET1 = circle
+TARGET2 = gcd
+TARGETS = gcd circle arc
+RMTARGETS = gcd.exe circle.exe arc.exe
+all: $(RMTARGETS)
+.PHONY: $(TARGETS) clean distclean install
+$(TARGET0)$(OEXE): $(SRCDIR)\arc.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET0)$(EEXE): $(TARGET0)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET0)$(EEXE) $(LDFLAGS)
+$(TARGET0): $(TARGET0)$(EEXE)
+$(TARGET1)$(OEXE): $(SRCDIR)\circle.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET1)$(EEXE): $(TARGET1)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET1)$(EEXE) $(LDFLAGS)
+$(TARGET1): $(TARGET1)$(EEXE)
+$(TARGET2)$(OEXE): $(SRCDIR)\gcd.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET2)$(EEXE): $(TARGET2)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET2)$(EEXE) $(LDFLAGS)
+$(TARGET2): $(TARGET2)$(EEXE)
+TARGET3 = stdio
+$(SRCDIR)\stdio.f: $(SRCDIR)\stdio0.txt $(SRCDIR)\stdio1.txt
+	 cat $(SRCDIR)\stdio1.txt $(SRCDIR)\stdio.txt >$(SRCDIR)\stdio.f
+$(TARGET3)$(OEXE): $(SRCDIR)\$(TARGET3).f
+	$(FC) $< $(FFLAGS) 
+$(TARGET3)$(EEXE): $(TARGET3)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET3)$(EEXE) $(LDFLAGS)
+$(TARGET3): $(TARGET3)$(EEXE)
+install: all
+	 $(MV) $(TARGETS) $(BINDIR)
+clean:
+	$(RM) $(OBJ) $(RMTARGETS) *.ps *.dat *.csv fort.* *.log
+distclean: clean
+	$(RM) $(BINDIR)\* Makefile*
