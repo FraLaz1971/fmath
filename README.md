@@ -17,6 +17,7 @@ of the last two
 ./gcd
 #
 ./newtab  | gnuplot -p -e "set terminal png;set xlabel 'X'; set ylabel 'X**(1/3)';set title 'cube roots';plot '-' using 1:5 w lp" > cuberoots.png
+#
 ![circle plot](circle.png "Circle")
 ![squares plot](squares.png "Squares")
 ![cubes plot](cubes.png "Cubes")
