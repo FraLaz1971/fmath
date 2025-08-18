@@ -7,7 +7,7 @@ C £14.50 fixed for health insurance
         REAL GROSS,SUPER,XPAY,TAX,PAYNET
         PRINT *, 'Input gross weekly pay'
         READ *, GROSS
-        SUPER = 0.06*GROSS
+        SUPER = 0.05*GROSS
         XPAY = GROSS-SUPER
         TAX = 0.25*XPAY
         PAYNET = XPAY-TAX-14.5

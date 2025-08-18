@@ -1,36 +1,44 @@
-C a set of survey data contains the age and weight of the
-C respondents together with a code to indicate their sex
-C (0 = male, 1 = female). Program reads the number of people
-C in the survey and then calculates the average weight
-C of the men between ages 21 and 35 (inclusive)
-C 1 Read number of people (N)
-C 2 Initialise sums of weights and people to zero
-C 3 Repeat N times
-C   3.1 Read age,weight and sex code
-C   3.2 If male and aged between 21 and 35 then
-C        3.2.1 Add weight to sum of weights
-C        3.2.2 Add one to sum of people
-C 4 Calculate and print the average weight   
-      program avwt
-C sp is the sum of people
-C sw is the sum of weights
-      integer n,sp,age,sex,i
-      real sw,wt
-      print *, 'n. of people in the survey?'
-      read *,n
-      sw = 0.0
-      sp = 0
-      do 10,i=1, n
-      print *, 'reading age,weight,sex for person',i
-        read *,age,wt,sex
-        if ((age.ge.21) .and. (age.le.35) .and. (sex.eq.0)) then
-            sw = sw + wt
-            sp = sp + 1
-        endif
-10    continue
-      if (sp.gt.0) then
-        print *,'average weight is',sw/sp
-      else
-        print *,'there are no men aged between 21 and 35'
-      endif
-      end
+C A SET OF SURVEY DATA CONTAINS THE AGE AND WEIGHT OF THE
+C RESPONDENTS TOGETHER WITH A CODE TO INDICATE THEIR SEX
+C (0 = MALE, 1 = FEMALE). PROGRAM READS THE NUMBER OF PEOPLE
+C IN THE SURVEY AND THEN CALCULATES THE AVERAGE WEIGHT
+C OF THE MEN BETWEEN AGES 21 AND 35 (INCLUSIVE)
+C 1 READ NUMBER OF PEOPLE (N)
+C 2 INITIALISE SUMS OF WEIGHTS AND PEOPLE TO ZERO
+C 3 REPEAT N TIMES
+C   3.1 READ AGE,WEIGHT AND SEX CODE
+C   3.2 IF MALE AND AGED BETWEEN 21 AND 35 THEN
+C        3.2.1 ADD WEIGHT TO SUM OF WEIGHTS
+C        3.2.2 ADD ONE TO SUM OF PEOPLE
+C 4 CALCULATE AND PRINT THE AVERAGE WEIGHT   
+      PROGRAM AVWT
+C SP IS THE SUM OF PEOPLE
+C SW IS THE SUM OF WEIGHTS
+      INTEGER N,SP,AGE,SEX,I
+      REAL SW,WT
+      PRINT *,'########################################'
+      PRINT *, 'THIS PROGRAM READS THE NUMBER OF PEOPLE',
+     +' IN THE SURVEY AND THEN CALCULATES THE AVERAGE WEIGHT',
+     +' OF THE MEN BETWEEN AGES 21 AND 35 (INCLUSIVE).'
+      PRINT *, 'SURVEY DATA CONTAINS THE AGE AND WEIGHT OF THE',
+     +' RESPONDENTS TOGETHER WITH A CODE TO INDICATE THEIR SEX',
+     +' (0 = MALE, 1 = FEMALE)'
+      PRINT *,'########################################'
+      PRINT *, 'N. OF PEOPLE IN THE SURVEY?'
+      READ *,N
+      SW = 0.0
+      SP = 0
+      DO 10,I=1, N
+      PRINT *, 'READING AGE,WEIGHT,SEX FOR PERSON',I
+        READ *,AGE,WT,SEX
+        IF ((AGE.GE.21) .AND. (AGE.LE.35) .AND. (SEX.EQ.0)) THEN
+            SW = SW + WT
+            SP = SP + 1
+        ENDIF
+10    CONTINUE
+      IF (SP.GT.0) THEN
+        PRINT *,'AVERAGE WEIGHT IS',SW/SP
+      ELSE
+        PRINT *,'THERE ARE NO MEN AGED BETWEEN 21 AND 35'
+      ENDIF
+      END

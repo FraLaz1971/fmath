@@ -14,11 +14,17 @@ C 3 Calculate number of girls and their total mark
 C 4 Calculate and print required averages
       PROGRAM PLUSEX
       INTEGER MARKS,MARKSB,NBOYS,NGIRLS,MARKSG,ISEX
+      INTEGER MAXREC
+      PARAMETER (MAXREC = 10)
       MARKS = 0
       MARKSB = 0
       NBOYS = 0
-      DO 10, I=1,10
+C n. of records is set to be max 10
+      DO 10, I=1,MAXREC
         PRINT *,'READING MARK AND SEX CODE'
+        PRINT *,'(0 = male, 1 = female)'
+        PRINT *,'the data is termined by a record',
+     +  ' containing a negative sex code'
         READ *,MARK,ISEX
         IF (ISEX.LT.0) GOTO 20
         MARKS = MARKS + MARK

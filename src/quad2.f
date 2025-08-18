@@ -9,22 +9,24 @@ C ROUNDING ERRORS
       print *, '* it stops when a=b=c=0'
       print *, '************************************************'
       E = 1E-9
-      print *, 'input coefficients a, b, c'
+1     print *, 'enter coefficients a, b, c'
+      print *, '0,0,0 to stop'
       read *,a,b,c
-1     if (a.eq.0 .and. b.eq.0 .and. c.eq.0) goto 2
+      if (a.eq.0 .and. b.eq.0 .and. c.eq.0) goto 2
       s = b**2-4*a*c
+      print *, 'delta = ',s
       if (s.gt.e) then
         d = sqrt(s)
-        x1 = (-b+d)/2*a
-        x2 = (-b-d)/2*a
-        print *,a,'x**2+',b,'x +',c,' = 0 has roots',x1,' and',x2
+        x1 = (-b+d)/(2*a)
+        x2 = (-b-d)/(2*a)
+        print *,a,'x**2+',b,'x +',c,' = 0'
+        print *, 'has roots',x1,' and',x2
       else if (s.gt.-E) then
         x = -b/(2*a)
         print *,a,'x**2+',b,'x +',c,' = 0 has roots',x,' and',x
       else
         print *,a,'x**2+',b,'x +',c,' = 0 has no roots'
       endif
-      read *,a,b,c
       goto 1
 2     continue
       print *, '***************************'

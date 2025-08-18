@@ -1,3 +1,10 @@
+C this program uses implicit type definition
+C variables starting with I,J,K,L,M,N are INTEGER
+C the variables starting with all the other letters are REAL
+C so x1,x2,x3 are REAL
+C    n1,n2,n3 are INTEGER
+C    a1 is REAL
+C    m1 is INTEGER
       program ex33
         x1 = 5
         n1 = 5

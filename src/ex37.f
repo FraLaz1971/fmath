@@ -6,6 +6,7 @@
         MYMAX = 0
         MYMIN = 10000
         PRINT *,'PLEASE INPUT', DIM ,'NUMBERS'
+        PRINT *,'AFTER EACH NUMBER, PRESS ENTER <--'
         DO 100, I=1, DIM
             READ *,NUMS(I)
             MYSUM = MYSUM + NUMS(I)

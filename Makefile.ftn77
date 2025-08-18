@@ -12,36 +12,180 @@ OBJDIR = obj
 BINDIR = bin
 RM = del
 MV = move
-TARGET0 = arc
-TARGET1 = circle
-TARGET2 = gcd
-TARGETS = gcd circle arc
-RMTARGETS = gcd.exe circle.exe arc.exe
+TARGET0 = apples
+TARGET1 = arc
+TARGET2 = avwt
+TARGET3 = bars
+TARGET4 = c2f
+TARGET5 = circle
+TARGET6 = cycles
+TARGET7 = diffsum
+TARGET8 = ex33
+TARGET9 = ex36
+TARGET10 = ex37
+TARGET11 = ex375
+TARGET12 = ex45
+TARGET13 = exams
+TARGET14 = f2c
+TARGET15 = fuel
+TARGET16 = gcd
+TARGET17 = morex
+TARGET18 = newtab
+TARGET19 = pay
+TARGET20 = plusex
+TARGET21 = quad
+TARGET22 = quad2
+TARGET23 = sum10
+TARGET24 = tables
+TARGET25 = test23
+TARGET26 = wheat
+TARGETS = wheat test23 tables sum10 quad2 quad plusex pay newtab morex gcd fuel f2c exams ex45 ex375 ex37 ex36 ex33 diffsum cycles circle c2f bars avwt arc apples
+RMTARGETS = wheat.exe test23.exe tables.exe sum10.exe quad2.exe quad.exe plusex.exe pay.exe newtab.exe morex.exe gcd.exe fuel.exe f2c.exe exams.exe ex45.exe ex375.exe ex37.exe ex36.exe ex33.exe diffsum.exe cycles.exe circle.exe c2f.exe bars.exe avwt.exe arc.exe apples.exe
 all: $(RMTARGETS)
 .PHONY: $(TARGETS) clean distclean install
-$(TARGET0)$(OEXE): $(SRCDIR)\arc.f
+$(TARGET0)$(OEXE): $(SRCDIR)\apples.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET0)$(EEXE): $(TARGET0)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET0)$(EEXE) $(LDFLAGS)
 $(TARGET0): $(TARGET0)$(EEXE)
-$(TARGET1)$(OEXE): $(SRCDIR)\circle.f
+$(TARGET1)$(OEXE): $(SRCDIR)\arc.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET1)$(EEXE): $(TARGET1)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET1)$(EEXE) $(LDFLAGS)
 $(TARGET1): $(TARGET1)$(EEXE)
-$(TARGET2)$(OEXE): $(SRCDIR)\gcd.f
+$(TARGET2)$(OEXE): $(SRCDIR)\avwt.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET2)$(EEXE): $(TARGET2)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET2)$(EEXE) $(LDFLAGS)
 $(TARGET2): $(TARGET2)$(EEXE)
-TARGET3 = stdio
-$(SRCDIR)\stdio.f: $(SRCDIR)\stdio0.txt $(SRCDIR)\stdio1.txt
-	 cat $(SRCDIR)\stdio1.txt $(SRCDIR)\stdio.txt >$(SRCDIR)\stdio.f
-$(TARGET3)$(OEXE): $(SRCDIR)\$(TARGET3).f
+$(TARGET3)$(OEXE): $(SRCDIR)\bars.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET3)$(EEXE): $(TARGET3)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET3)$(EEXE) $(LDFLAGS)
 $(TARGET3): $(TARGET3)$(EEXE)
+$(TARGET4)$(OEXE): $(SRCDIR)\c2f.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET4)$(EEXE): $(TARGET4)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET4)$(EEXE) $(LDFLAGS)
+$(TARGET4): $(TARGET4)$(EEXE)
+$(TARGET5)$(OEXE): $(SRCDIR)\circle.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET5)$(EEXE): $(TARGET5)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET5)$(EEXE) $(LDFLAGS)
+$(TARGET5): $(TARGET5)$(EEXE)
+$(TARGET6)$(OEXE): $(SRCDIR)\cycles.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET6)$(EEXE): $(TARGET6)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET6)$(EEXE) $(LDFLAGS)
+$(TARGET6): $(TARGET6)$(EEXE)
+$(TARGET7)$(OEXE): $(SRCDIR)\diffsum.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET7)$(EEXE): $(TARGET7)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET7)$(EEXE) $(LDFLAGS)
+$(TARGET7): $(TARGET7)$(EEXE)
+$(TARGET8)$(OEXE): $(SRCDIR)\ex33.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET8)$(EEXE): $(TARGET8)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET8)$(EEXE) $(LDFLAGS)
+$(TARGET8): $(TARGET8)$(EEXE)
+$(TARGET9)$(OEXE): $(SRCDIR)\ex36.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET9)$(EEXE): $(TARGET9)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET9)$(EEXE) $(LDFLAGS)
+$(TARGET9): $(TARGET9)$(EEXE)
+$(TARGET10)$(OEXE): $(SRCDIR)\ex37.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET10)$(EEXE): $(TARGET10)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET10)$(EEXE) $(LDFLAGS)
+$(TARGET10): $(TARGET10)$(EEXE)
+$(TARGET11)$(OEXE): $(SRCDIR)\ex375.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET11)$(EEXE): $(TARGET11)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET11)$(EEXE) $(LDFLAGS)
+$(TARGET11): $(TARGET11)$(EEXE)
+$(TARGET12)$(OEXE): $(SRCDIR)\ex45.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET12)$(EEXE): $(TARGET12)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET12)$(EEXE) $(LDFLAGS)
+$(TARGET12): $(TARGET12)$(EEXE)
+$(TARGET13)$(OEXE): $(SRCDIR)\exams.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET13)$(EEXE): $(TARGET13)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET13)$(EEXE) $(LDFLAGS)
+$(TARGET13): $(TARGET13)$(EEXE)
+$(TARGET14)$(OEXE): $(SRCDIR)\f2c.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET14)$(EEXE): $(TARGET14)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET14)$(EEXE) $(LDFLAGS)
+$(TARGET14): $(TARGET14)$(EEXE)
+$(TARGET15)$(OEXE): $(SRCDIR)\fuel.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET15)$(EEXE): $(TARGET15)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET15)$(EEXE) $(LDFLAGS)
+$(TARGET15): $(TARGET15)$(EEXE)
+$(TARGET16)$(OEXE): $(SRCDIR)\gcd.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET16)$(EEXE): $(TARGET16)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET16)$(EEXE) $(LDFLAGS)
+$(TARGET16): $(TARGET16)$(EEXE)
+$(TARGET17)$(OEXE): $(SRCDIR)\morex.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET17)$(EEXE): $(TARGET17)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET17)$(EEXE) $(LDFLAGS)
+$(TARGET17): $(TARGET17)$(EEXE)
+$(TARGET18)$(OEXE): $(SRCDIR)\newtab.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET18)$(EEXE): $(TARGET18)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET18)$(EEXE) $(LDFLAGS)
+$(TARGET18): $(TARGET18)$(EEXE)
+$(TARGET19)$(OEXE): $(SRCDIR)\pay.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET19)$(EEXE): $(TARGET19)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET19)$(EEXE) $(LDFLAGS)
+$(TARGET19): $(TARGET19)$(EEXE)
+$(TARGET20)$(OEXE): $(SRCDIR)\plusex.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET20)$(EEXE): $(TARGET20)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET20)$(EEXE) $(LDFLAGS)
+$(TARGET20): $(TARGET20)$(EEXE)
+$(TARGET21)$(OEXE): $(SRCDIR)\quad.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET21)$(EEXE): $(TARGET21)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET21)$(EEXE) $(LDFLAGS)
+$(TARGET21): $(TARGET21)$(EEXE)
+$(TARGET22)$(OEXE): $(SRCDIR)\quad2.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET22)$(EEXE): $(TARGET22)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET22)$(EEXE) $(LDFLAGS)
+$(TARGET22): $(TARGET22)$(EEXE)
+$(TARGET23)$(OEXE): $(SRCDIR)\sum10.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET23)$(EEXE): $(TARGET23)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET23)$(EEXE) $(LDFLAGS)
+$(TARGET23): $(TARGET23)$(EEXE)
+$(TARGET24)$(OEXE): $(SRCDIR)\tables.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET24)$(EEXE): $(TARGET24)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET24)$(EEXE) $(LDFLAGS)
+$(TARGET24): $(TARGET24)$(EEXE)
+$(TARGET25)$(OEXE): $(SRCDIR)\test23.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET25)$(EEXE): $(TARGET25)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET25)$(EEXE) $(LDFLAGS)
+$(TARGET25): $(TARGET25)$(EEXE)
+$(TARGET26)$(OEXE): $(SRCDIR)\wheat.f
+	$(FC) $< $(FFLAGS) 
+$(TARGET26)$(EEXE): $(TARGET26)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET26)$(EEXE) $(LDFLAGS)
+$(TARGET26): $(TARGET26)$(EEXE)
+TARGET27 = stdio
+$(SRCDIR)\stdio.f: $(SRCDIR)\stdio0.txt $(SRCDIR)\stdio1.txt
+	 cat $(SRCDIR)\stdio1.txt $(SRCDIR)\stdio.txt >$(SRCDIR)\stdio.f
+$(TARGET27)$(OEXE): $(SRCDIR)\$(TARGET27).f
+	$(FC) $< $(FFLAGS) 
+$(TARGET27)$(EEXE): $(TARGET27)$(OEXE)
+	$(FL) $< $(FDFLAGS)$(TARGET27)$(EEXE) $(LDFLAGS)
+$(TARGET27): $(TARGET27)$(EEXE)
 install: all
 	 $(MV) $(TARGETS) $(BINDIR)
 clean:

@@ -4,6 +4,7 @@ C of the three sides of the field in metres
 C and the sowing density (in grams per square metre).
 C Print the number of 10 kilo bags of wheat he must
 C purchase in order to sow the whole field
+C we use the Erone's formula
 C area = sqrt(s*(s-a)(s-b)(s-c))
 C a,b,c are the triangle sides
 C 2s = a+b+c
@@ -13,10 +14,13 @@ C 2s = a+b+c
         print *,'please enter the length'
         print *,'of the 3 field sides (in metres)'
         read *, a, b, c
+        print *, 'a=',a,'b=',b,'c=',c
         print *,'please enter the sowing density'
         print *,'(in grams per square metre)'
         read *, density
         s = 0.5*(a+b+c)
+        print *,'s=',s
+        print *, 's*(s-a)*(s-b)*(s-c) = ', s*(s-a)*(s-b)*(s-c)
         area = sqrt(s*(s-a)*(s-b)*(s-c))
         qty = density*area
         nbags = (qty+9999)/10000

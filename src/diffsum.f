@@ -1,18 +1,19 @@
-C this program reads 4 integers and print the difference
-C between the sum of the first two and the sum
-C of the last two
-       program diffsum
-        integer r1,r2,r3,r4,sum1,sum2,diff
-        print *,'please enter the number n.1'
-        read *,r1
-        print *,'please enter the number n.2'
-        read *,r2
-        sum1 = r1 + r2
-        print *,'please enter the number n.3'
-        read *,r3
-        print *,'please enter the number n.4'
-        read *,r4
-        sum2 = r3 + r4
-        diff = sum1 - sum2
-        print *,'the difference sum1 - sum2 is',diff
-       end
+C THIS PROGRAM READS 4 INTEGERS AND PRINT THE DIFFERENCE
+C BETWEEN THE SUM OF THE FIRST TWO AND THE SUM
+C OF THE LAST TWO
+       PROGRAM DIFFSUM
+        INTEGER R1,R2,R3,R4,SUM1,SUM2,DIFF
+        PRINT *,'EXPECTING YOU TO ENTER 4 INTEGERS'
+        PRINT *,'PLEASE ENTER THE INTEGER N.1'
+        READ *,R1
+        PRINT *,'PLEASE ENTER THE INTEGER N.2'
+        READ *,R2
+        SUM1 = R1 + R2
+        PRINT *,'PLEASE ENTER THE INTEGER N.3'
+        READ *,R3
+        PRINT *,'PLEASE ENTER THE INTEGER N.4'
+        READ *,R4
+        SUM2 = R3 + R4
+        DIFF = SUM1 - SUM2
+        PRINT *,'THE DIFFERENCE SUM1 - SUM2 IS',DIFF
+       END
