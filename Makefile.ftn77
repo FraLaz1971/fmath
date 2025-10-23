@@ -35,12 +35,12 @@ TARGET19 = pay
 TARGET20 = plusex
 TARGET21 = quad
 TARGET22 = quad2
-TARGET23 = sum10
-TARGET24 = tables
+TARGET23 = quads
+TARGET24 = sum10
 TARGET25 = test23
 TARGET26 = wheat
-TARGETS = wheat test23 tables sum10 quad2 quad plusex pay newtab morex gcd fuel f2c exams ex45 ex375 ex37 ex36 ex33 diffsum cycles circle c2f bars avwt arc apples
-RMTARGETS = wheat.exe test23.exe tables.exe sum10.exe quad2.exe quad.exe plusex.exe pay.exe newtab.exe morex.exe gcd.exe fuel.exe f2c.exe exams.exe ex45.exe ex375.exe ex37.exe ex36.exe ex33.exe diffsum.exe cycles.exe circle.exe c2f.exe bars.exe avwt.exe arc.exe apples.exe
+TARGETS = wheat test23 sum10 quads quad2 quad plusex pay newtab morex gcd fuel f2c exams ex45 ex375 ex37 ex36 ex33 diffsum cycles circle c2f bars avwt arc apples
+RMTARGETS = wheat.exe test23.exe sum10.exe quads.exe quad2.exe quad.exe plusex.exe pay.exe newtab.exe morex.exe gcd.exe fuel.exe f2c.exe exams.exe ex45.exe ex375.exe ex37.exe ex36.exe ex33.exe diffsum.exe cycles.exe circle.exe c2f.exe bars.exe avwt.exe arc.exe apples.exe
 all: $(RMTARGETS)
 .PHONY: $(TARGETS) clean distclean install
 $(TARGET0)$(OEXE): $(SRCDIR)\apples.f
@@ -158,12 +158,12 @@ $(TARGET22)$(OEXE): $(SRCDIR)\quad2.f
 $(TARGET22)$(EEXE): $(TARGET22)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET22)$(EEXE) $(LDFLAGS)
 $(TARGET22): $(TARGET22)$(EEXE)
-$(TARGET23)$(OEXE): $(SRCDIR)\sum10.f
+$(TARGET23)$(OEXE): $(SRCDIR)\quads.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET23)$(EEXE): $(TARGET23)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET23)$(EEXE) $(LDFLAGS)
 $(TARGET23): $(TARGET23)$(EEXE)
-$(TARGET24)$(OEXE): $(SRCDIR)\tables.f
+$(TARGET24)$(OEXE): $(SRCDIR)\sum10.f
 	$(FC) $< $(FFLAGS) 
 $(TARGET24)$(EEXE): $(TARGET24)$(OEXE)
 	$(FL) $< $(FDFLAGS)$(TARGET24)$(EEXE) $(LDFLAGS)
