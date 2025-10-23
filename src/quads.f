@@ -60,7 +60,7 @@ C rounding errors
         close(11)
         print *,'executing: ',bname
         call cissue(bname,ifail)
-        if(ifail) print *,'command not launched'
+        if(ifail.gt.0) print *,'command not launched'
 100   format('plot ',F10.6,'*x**2+',F10.6,'*x+',F10.6)
 200   format('gnuplot -p ',A,' &')
       end

@@ -11,8 +11,11 @@ for t in $(ls -1 src/*.f)
 do
 	TARGET=$(basename ${t%.*})
 	echo 'TARGET'$a = $TARGET
+	if [[ ($TARGET != "analysis")&&($TARGET != "quads") ]]
+	then
 	TARGETS="$TARGET $TARGETS"
-	a=$(($a+1)) 
+	a=$(($a+1))
+	fi
 done
 	echo 'TARGETS' = $TARGETS
 	echo 'all: $(TARGETS)'
@@ -20,14 +23,14 @@ a=0
 for s in $(ls -1 src/*.f)
 do
 	TARGET=$(basename ${s%.*})
+	if [[ ($TARGET != "analysis")&&($TARGET != "quads") ]]
+	then
 	echo 'obj/$(TARGET'$a').o: src/'$TARGET'.f'
 	echo -e "\t"'$(FC) -c   $< -o obj/'$TARGET'.o $(FFLAGS)'
-	if [[ $TARGET != "analysis" ]]
-	then
 		echo '$(TARGET'$a'): obj/'$TARGET'.o'
 		echo -e "\t"'$(FC) -o '$TARGET' $< $(LDFLAGS)'
 	else
-		echo 'analysis:'
+		:
 	fi
 	a=$(($a+1)) 
 done

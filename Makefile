@@ -34,6 +34,7 @@ TARGET19 = pay
 TARGET20 = plusex
 TARGET21 = quad
 TARGET22 = quad2
+TARGET23 = quads
 TARGET23 = sum10
 TARGET24 = test23
 TARGET25 = wheat
@@ -132,26 +133,26 @@ obj/$(TARGET22)$(OEXE): src/quad2.f
 	$(FC) -c   $< -o obj/quad2$(OEXE) $(FFLAGS)
 $(TARGET22): obj/quad2$(OEXE)
 	$(FC) -o quad2 $< $(LDFLAGS)
-obj/$(TARGET23)$(OEXE): src/sum10.f
+obj/$(TARGET24)$(OEXE): src/sum10.f
 	$(FC) -c   $< -o obj/sum10$(OEXE) $(FFLAGS)
-$(TARGET23): obj/sum10$(OEXE)
+$(TARGET24): obj/sum10$(OEXE)
 	$(FC) -o sum10 $< $(LDFLAGS)
-obj/$(TARGET24)$(OEXE): src/test23.f
+obj/$(TARGET25)$(OEXE): src/test23.f
 	$(FC) -c   $< -o obj/test23$(OEXE) $(FFLAGS)
-$(TARGET24): obj/test23$(OEXE)
+$(TARGET25): obj/test23$(OEXE)
 	$(FC) -o test23 $< $(LDFLAGS)
-obj/$(TARGET25)$(OEXE): src/wheat.f
+obj/$(TARGET26)$(OEXE): src/wheat.f
 	$(FC) -c   $< -o obj/wheat$(OEXE) $(FFLAGS)
-$(TARGET25): obj/wheat$(OEXE)
+$(TARGET26): obj/wheat$(OEXE)
 	$(FC) -o wheat $< $(LDFLAGS)
-TARGET26 = stdio
+TARGET27 = stdio
 $(SRCDIR)stdio.f: $(SRCDIR)stdio0.txt $(SRCDIR)stdio1.txt
 	 cat $(SRCDIR)stdio0.txt $(SRCDIR)stdio.txt >$(SRCDIR)stdio.f
-$(OBJDIR)$(TARGET26)$(OEXE): $(SRCDIR)$(TARGET26).f
-	$(FC) $(FFLAGS) $< $(FDFLAGS) $(OBJDIR)$(TARGET26)$(OEXE) 
-$(TARGET26)$(EEXE): $(OBJDIR)$(TARGET26)$(OEXE)
-	$(FL) $< $(FDFLAGS) $(TARGET26)$(EEXE) $(LDFLAGS)
-	$(RM) $(SRCDIR)$(TARGET26).f
+$(OBJDIR)$(TARGET27)$(OEXE): $(SRCDIR)$(TARGET27).f
+	$(FC) $(FFLAGS) $< $(FDFLAGS) $(OBJDIR)$(TARGET27)$(OEXE) 
+$(TARGET27)$(EEXE): $(OBJDIR)$(TARGET27)$(OEXE)
+	$(FL) $< $(FDFLAGS) $(TARGET27)$(EEXE) $(LDFLAGS)
+	$(RM) $(SRCDIR)$(TARGET27).f
 install: all
 	mv $(TARGETS) $(BINDIR)
 clean:
