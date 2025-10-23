@@ -10,7 +10,7 @@ C   otherwise (case delta = 0)
 C   4.3 (otherwise, delta<0) print message no real roots
 C e is a very small number but greater than
 C rounding errors
-        real e,s,d,x,x1,x2
+        real e,s,d,x,x1,x2,a,b,c
         e = 1E-5
         print *,'this program gives the roots'
         print *,'of the quadratic equation'
@@ -20,14 +20,33 @@ C rounding errors
         s = b**2-4*a*c
         print *,'delta = ', s
         if (s.gt.e) then
+        print *,'roots = x1,x2 = (-b+-sqrt((b**2-4*a*c))/(2*a)'
           d=sqrt(s)
           x1 = (-b+d)/(2*a)
           x2 = (-b-d)/(2*a)
-          print *,'roots are',x1,x2
+        print *,'roots are',x1,x2
         else if (s.gt.-e) then
+        print *,'roots = x1 = x2 = -b/(2*a)'
           x = -b/(2*a)
           print *,'roots are',x,x
         else
           print *,'there are no real roots'
         endif
+        call gplot(a,b,c)
+      end
+      subroutine gplot(a,b,c)
+        real a,b,c
+        character*8 fname
+        character*128 cmd
+        character*64 parab
+        write(parab,100)a,b,c
+        fname='quad.plt'
+        open(11,file=fname)
+          write(11,*) parab
+        close(11)
+        write(cmd,200)fname
+        print *,'executing: ',cmd
+        call system(cmd)
+100   format('plot ',F10.6,'*x**2+',F10.6,'*x+',F10.6)
+200   format('gnuplot -p ',A,' &')
       end
